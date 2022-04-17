@@ -1,0 +1,13 @@
+.x-relative-center {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.float-right {
+    float: right;
+}
+
+.object-fit-cover {
+    object-fit: cover;
+}
