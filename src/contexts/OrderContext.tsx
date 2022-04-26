@@ -122,7 +122,11 @@ const OrderContextProvider = ({ children }: OrderContextProps) => {
     const loadAllOrders = async (uid?: string, dateBegin?: Date, dateEnd?: Date) => {
         try {
             const response = await axios.get(
-                `${host}/api/checkout${uid !== undefined ? `/${uid}` : `?date_begin=${dateBegin}&date_end=${dateEnd}`}`
+                `${host}/api/checkout${
+                    uid !== undefined
+                        ? `/${uid}`
+                        : `${dateBegin && dateEnd ? `?date_begin=${dateBegin}&date_end=${dateEnd}` : ``}`
+                }`
             );
             const data = response.data.result;
             if (data) {
